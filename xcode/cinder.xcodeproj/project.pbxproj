@@ -578,6 +578,9 @@
 		15E5173C161F73C200DA2460 /* Svg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15E5173B161F73C200DA2460 /* Svg.cpp */; };
 		15E5173D161F73C200DA2460 /* Svg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15E5173B161F73C200DA2460 /* Svg.cpp */; };
 		15E5173E161F73C200DA2460 /* Svg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15E5173B161F73C200DA2460 /* Svg.cpp */; };
+		15E5174B161F79B300DA2460 /* Base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15E5174A161F79B300DA2460 /* Base64.cpp */; };
+		15E5174C161F79B300DA2460 /* Base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15E5174A161F79B300DA2460 /* Base64.cpp */; };
+		15E5174D161F79B300DA2460 /* Base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15E5174A161F79B300DA2460 /* Base64.cpp */; };
 		277C2CF01366632B00178A29 /* Matrix22.h in Headers */ = {isa = PBXBuildFile; fileRef = 277C2CEC1366632B00178A29 /* Matrix22.h */; };
 		277C2CF11366632B00178A29 /* Matrix33.h in Headers */ = {isa = PBXBuildFile; fileRef = 277C2CED1366632B00178A29 /* Matrix33.h */; };
 		277C2CF21366632B00178A29 /* Matrix44.h in Headers */ = {isa = PBXBuildFile; fileRef = 277C2CEE1366632B00178A29 /* Matrix44.h */; };
@@ -910,6 +913,7 @@
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		15E5173B161F73C200DA2460 /* Svg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Svg.cpp; sourceTree = "<group>"; };
+		15E5174A161F79B300DA2460 /* Base64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Base64.cpp; sourceTree = "<group>"; };
 		277C2CEC1366632B00178A29 /* Matrix22.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix22.h; sourceTree = "<group>"; };
 		277C2CED1366632B00178A29 /* Matrix33.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix33.h; sourceTree = "<group>"; };
 		277C2CEE1366632B00178A29 /* Matrix44.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrix44.h; sourceTree = "<group>"; };
@@ -1278,6 +1282,7 @@
 				00CE73960E92DBEB0059E09B /* gl */,
 				0032FD2A10BB472E00C63A9D /* Exception.cpp */,
 				007B09730E9559960052257E /* Rand.cpp */,
+				15E5174A161F79B300DA2460 /* Base64.cpp */,
 				008CE8410E94679D00644A05 /* Area.cpp */,
 				009EEF190EB79C89003AB86B /* Rect.cpp */,
 				009EE4710F7A9FAC00F17CB1 /* PolyLine.cpp */,
@@ -2124,6 +2129,7 @@
 				00A121ED1362778200081873 /* TimelineItem.cpp in Sources */,
 				00A121EE1362778200081873 /* Tween.cpp in Sources */,
 				15E5173D161F73C200DA2460 /* Svg.cpp in Sources */,
+				15E5174C161F79B300DA2460 /* Base64.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2212,6 +2218,7 @@
 				00A121EA1362778200081873 /* TimelineItem.cpp in Sources */,
 				00A121EB1362778200081873 /* Tween.cpp in Sources */,
 				15E5173E161F73C200DA2460 /* Svg.cpp in Sources */,
+				15E5174D161F79B300DA2460 /* Base64.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2324,6 +2331,7 @@
 				00A121F01362778200081873 /* TimelineItem.cpp in Sources */,
 				00A121F11362778200081873 /* Tween.cpp in Sources */,
 				15E5173C161F73C200DA2460 /* Svg.cpp in Sources */,
+				15E5174B161F79B300DA2460 /* Base64.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
