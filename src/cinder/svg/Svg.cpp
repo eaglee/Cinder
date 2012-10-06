@@ -218,6 +218,13 @@ vector<string> readStringList( const std::string &s, bool stripQuotes = false )
 } // anonymous namespace
 
 ////////////////////////////////////////////////////////////////////////////////////
+// Renderer
+void Renderer::setVisitor( const function<bool(const Node&, svg::Style *)> &visitor )
+{
+	mVisitor = shared_ptr<function<bool(const Node&, svg::Style *)> >( new function<bool(const Node&, svg::Style *)>( visitor ) );
+}
+
+////////////////////////////////////////////////////////////////////////////////////
 // Statics
 Paint Style::sPaintNone = svg::Paint();
 Paint Style::sPaintBlack = svg::Paint( Color::black() );
@@ -1752,6 +1759,58 @@ void Group::parse( const XmlTree &xml )
 		else if( treeIt->getTag() == "text" )
 			mChildren.push_back( new Text( this, *treeIt ) );
 	}
+}
+
+const Node* Group::findNodeByIdContains( const std::string &idPartial, bool recurse ) const
+{
+	for( list<Node*>::const_iterator childIt = mChildren.begin(); childIt != mChildren.end(); ++childIt ) {
+		if( (*childIt)->getId().find( idPartial ) != string::npos ) {
+			return *childIt;
+		}
+	}
+
+	if( mDefs ) {
+		const Node *result = mDefs->findNodeByIdContains( idPartial, recurse );
+		if( result )
+			return result;
+	}
+
+	if( recurse ) {
+		for( list<Node*>::const_iterator childIt = mChildren.begin(); childIt != mChildren.end(); ++childIt ) {
+			if( typeid(**childIt) == typeid(Group) ) {
+				Group* group = static_cast<Group*>(*childIt);
+				const Node* result = group->findNodeByIdContains( idPartial );
+				if( result )
+					return result;
+			}
+		}
+	}
+	return NULL;
+}
+
+list<Node*> Group::findNodesByIdContains( const std::string &idPartial, bool recurse ) const
+{
+	list<Node*> nodes;
+	for( list<Node*>::const_iterator childIt = mChildren.begin(); childIt != mChildren.end(); ++childIt ) {
+		if( (*childIt)->getId().find( idPartial ) != string::npos ) {
+			nodes.push_back( *childIt );
+		}
+	}
+
+	if( recurse )
+	{
+		for( auto *child : mChildren )
+		{
+			if( typeid(*child) == typeid(Group) )
+			{
+				Group* group = static_cast<Group*>(child);
+				list<Node*> ls = group->findNodesByIdContains( idPartial );
+				nodes.insert( nodes.end(), ls.begin(), ls.end() );
+			}
+		}
+	}
+
+	return nodes;
 }
 
 const Node* Group::findNode( const std::string &id, bool recurse ) const
