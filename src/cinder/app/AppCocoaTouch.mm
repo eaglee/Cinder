@@ -605,6 +605,11 @@ uint32_t AppCocoaTouch::emitSupportedOrientations()
 	return mSignalSupportedOrientations();
 }
 
+void AppCocoaTouch::emitPreparingToRotate(InterfaceOrientation to_orientation)
+{
+	mSignalPreparingToRotate( to_orientation );
+}
+
 void AppCocoaTouch::emitWillRotate()
 {
 	mSignalWillRotate();
@@ -712,6 +717,11 @@ void AppCocoaTouch::emitDidRotate()
 	return result;
 }
 #endif
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+	mAppImpl->mApp->emitPreparingToRotate( cinder::app::convertInterfaceOrientation( toInterfaceOrientation ) );
+}
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration
 {

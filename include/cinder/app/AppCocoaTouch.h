@@ -92,6 +92,8 @@ class AppCocoaTouch : public App {
 
 	EventSignalSupportedOrientations&	getSignalSupportedOrientations() { return mSignalSupportedOrientations; }
 	uint32_t							emitSupportedOrientations();
+	signals::signal<void(InterfaceOrientation)>&	getSignalPreparingToRotate() { return mSignalPreparingToRotate; }
+	void								emitPreparingToRotate(InterfaceOrientation to_orientation);
 	signals::signal<void()>&			getSignalWillRotate() { return mSignalWillRotate; }
 	void								emitWillRotate();
 	signals::signal<void()>&			getSignalDidRotate() { return mSignalDidRotate; }
@@ -202,6 +204,7 @@ class AppCocoaTouch : public App {
 	signals::signal<void(bool)>		mSignalProximitySensor, mSignalBatteryState;
 
 	EventSignalSupportedOrientations		mSignalSupportedOrientations;
+	signals::signal<void(InterfaceOrientation)> mSignalPreparingToRotate;
 	signals::signal<void()>					mSignalWillRotate, mSignalDidRotate;
 
 	bool					mIsKeyboardVisible;
